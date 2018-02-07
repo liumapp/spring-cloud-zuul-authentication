@@ -16,7 +16,8 @@
 		</developer>
 	</developers>
 
-
   <modules>
+	  <!--<module>spring-cloud-zuul-demo</module>-->
+	  <!--<module>spring-security-mybatis-demo</module>-->
   </modules>
 </project>
