@@ -3,23 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.liumapp.demo.zuul</groupId>
-    <artifactId>spring-cloud-zuul-demo</artifactId>
+    <groupId>com.liumapp.auth.zuul</groupId>
+    <artifactId>spring-cloud-zuul-authentication</artifactId>
     <version>v1.0.0</version>
   </parent>
 
-  <groupId>com.liumapp.demo.zuul.client.a</groupId>
-  <artifactId>zuul-demo-client-a</artifactId>
+  <groupId>com.liumapp.auth.zuul.client.a</groupId>
+  <artifactId>zuul-auth-client-a</artifactId>
   <version>v1.0.0</version>
   <packaging>jar</packaging>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
-  </properties>
-
-  <name>spring-cloud-zuul-demo-a</name>
+  <name>zuul-auth-client-a</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>

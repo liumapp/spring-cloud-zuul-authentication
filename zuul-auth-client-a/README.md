@@ -1,2 +1,2 @@
-# zuul-demo-client-a
+# zuul-auth-client-a
 

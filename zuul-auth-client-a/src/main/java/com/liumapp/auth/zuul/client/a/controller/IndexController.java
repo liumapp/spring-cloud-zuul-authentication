@@ -1,4 +1,4 @@
-package com.liumapp.demo.zuul.client.a.controller;
+package com.liumapp.auth.zuul.client.a.controller;
 
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
