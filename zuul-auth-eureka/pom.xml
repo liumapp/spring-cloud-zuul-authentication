@@ -3,17 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.liumapp.demo.zuul</groupId>
-    <artifactId>spring-cloud-zuul-demo</artifactId>
+    <groupId>com.liumapp.auth.zuul</groupId>
+    <artifactId>spring-cloud-zuul-authentication</artifactId>
     <version>v1.0.0</version>
   </parent>
 
-  <groupId>com.liumapp.demo.zuul.eureka</groupId>
-  <artifactId>zuul-demo-eureka</artifactId>
+  <groupId>com.liumapp.auth.zuul.eureka</groupId>
+  <artifactId>zuul-auth-eureka</artifactId>
   <version>v1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>zuul-server-eureka</name>
+  <name>zuul-auth-eureka</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>
