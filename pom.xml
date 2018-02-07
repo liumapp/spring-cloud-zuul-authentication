@@ -32,7 +32,8 @@
 	<modules>
 	  <!--<module>spring-cloud-zuul-demo</module>-->
 	  <!--<module>spring-security-mybatis-demo</module>-->
-		<module>zuul-auth-client-a</module>
+		<!--<module>zuul-auth-client-a</module>-->
+		<!--<module>zuul-auth-client-b</module>-->
 	</modules>
 
 	<dependencyManagement>
