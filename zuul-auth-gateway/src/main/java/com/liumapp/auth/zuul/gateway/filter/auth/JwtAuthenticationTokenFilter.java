@@ -2,6 +2,7 @@ package com.liumapp.auth.zuul.gateway.filter.auth;
 
 import com.liumapp.auth.zuul.gateway.auth.service.MultyUserDetailsService;
 import com.liumapp.auth.zuul.gateway.auth.util.JwtTokenUtil;
+import com.netflix.zuul.ZuulFilter;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -25,7 +26,7 @@ import java.io.IOException;
  * E-mail:liumapp.com@gmail.com
  * home-page:http://www.liumapp.com
  */
-public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
+public class JwtAuthenticationTokenFilter extends ZuulFilter {
 
     private final Log logger = LogFactory.getLog(this.getClass());
 
@@ -39,6 +40,25 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private String tokenHeader;
 
     @Override
+    public String filterType() {
+        return null;
+    }
+
+    @Override
+    public int filterOrder() {
+        return 0;
+    }
+
+    @Override
+    public boolean shouldFilter() {
+        return false;
+    }
+
+    @Override
+    public Object run() {
+        return null;
+    }
+
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         final String requestHeader = request.getHeader(this.tokenHeader);
 
@@ -83,4 +103,5 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
         chain.doFilter(request, response);
     }
+
 }
