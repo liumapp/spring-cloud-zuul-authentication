@@ -30,7 +30,7 @@
 	</properties>
 
 	<modules>
-	  <!--<module>spring-security-mybatis-demo</module>-->
+	  	<module>spring-security-mybatis-demo</module>
 		<module>zuul-auth-client-a</module>
 		<module>zuul-auth-client-b</module>
 		<module>zuul-auth-eureka</module>
