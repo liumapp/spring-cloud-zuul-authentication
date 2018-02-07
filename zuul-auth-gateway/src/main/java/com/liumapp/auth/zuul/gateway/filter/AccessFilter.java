@@ -1,4 +1,4 @@
-package com.liumapp.demo.zuul.gateway.filter;
+package com.liumapp.auth.zuul.gateway.filter;
 
 
 import com.netflix.zuul.ZuulFilter;

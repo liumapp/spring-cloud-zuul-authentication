@@ -1,6 +1,6 @@
-package com.liumapp.demo.zuul.gateway.config;
+package com.liumapp.auth.zuul.gateway.config;
 
-import com.liumapp.demo.zuul.gateway.filter.AccessFilter;
+import com.liumapp.auth.zuul.gateway.filter.AccessFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
