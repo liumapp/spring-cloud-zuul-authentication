@@ -4,6 +4,7 @@ import com.liumapp.auth.zuul.gateway.auth.JwtAuthenticationEntryPoint;
 import com.liumapp.auth.zuul.gateway.auth.service.MultyUserDetailsService;
 import com.liumapp.auth.zuul.gateway.auth.user.JwtUserFactory;
 import com.liumapp.auth.zuul.gateway.filter.auth.JwtAuthenticationTokenFilter;
+import com.liumapp.auth.zuul.gateway.filter.auth.JwtAuthenticationTokenFilter2;
 import com.liumapp.auth.zuul.gateway.mapper.RoleMapper;
 import com.liumapp.auth.zuul.gateway.mapper.UserRoleMapper;
 import org.springframework.http.HttpMethod;
@@ -84,12 +85,12 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js"
                 ).permitAll()
-                .antMatchers("/zuul-gateway/auth/**").permitAll()
+                .antMatchers("/self/auth/**").permitAll()
                 .anyRequest().authenticated();
 
         // Custom JWT based security filter
-//        httpSecurity
-//                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
+        httpSecurity
+                .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 
         // disable page caching
         httpSecurity

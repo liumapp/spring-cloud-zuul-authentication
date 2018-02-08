@@ -2,6 +2,8 @@ package com.liumapp.auth.zuul.gateway.filter.auth;
 
 import com.liumapp.auth.zuul.gateway.auth.service.MultyUserDetailsService;
 import com.liumapp.auth.zuul.gateway.auth.util.JwtTokenUtil;
+import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -12,20 +14,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * Created by liumapp on 2/2/18.
  * E-mail:liumapp.com@gmail.com
  * home-page:http://www.liumapp.com
  */
-public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
+public class JwtAuthenticationTokenFilter2 extends ZuulFilter {
 
     private final Log logger = LogFactory.getLog(this.getClass());
 
@@ -39,7 +36,33 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private String tokenHeader;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+    public String filterType() {
+        return null;
+    }
+
+    @Override
+    public int filterOrder() {
+        return 0;
+    }
+
+    @Override
+    public boolean shouldFilter() {
+        return false;
+    }
+
+    @Override
+    public Object run() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+
+        logger.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
+
+        this.doFilterInternal(request);
+
+        return null;
+    }
+
+    protected void doFilterInternal(HttpServletRequest request) {
         final String requestHeader = request.getHeader(this.tokenHeader);
 
         String username = null;
@@ -81,6 +104,6 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
         }
 
-        chain.doFilter(request, response);
     }
+
 }

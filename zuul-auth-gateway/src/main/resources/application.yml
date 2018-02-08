@@ -33,9 +33,6 @@ zuul:
     personal-api:
       serviceId: personal-api
       path: /**
-    auth-api:
-      serviceId: zuul-gateway
-      path: /**
 
 jwt:
   header: Authorization

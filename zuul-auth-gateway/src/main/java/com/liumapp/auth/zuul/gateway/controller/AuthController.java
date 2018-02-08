@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
  * home-page:http://www.liumapp.com
  */
 @RestController
+@RequestMapping(value = "")
 public class AuthController {
 
     @Value("${jwt.header}")
@@ -43,6 +44,11 @@ public class AuthController {
 
     @Autowired
     private MultyUserDetailsService userDetailsService;
+
+    @RequestMapping(value = "/self/auth")
+    public String index () {
+        return "hello , this is auth zuul gateway .";
+    }
 
     @RequestMapping(value = "${jwt.route.authentication.path}/company", method = RequestMethod.POST)
     public ResponseEntity<?> createCompanyAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
