@@ -8,12 +8,12 @@
     <version>v1.0.0</version>
   </parent>
 
-  <groupId>com.liumapp.auth.zuul.client.b</groupId>
-  <artifactId>zuul-auth-client-b</artifactId>
+  <groupId>com.liumapp.auth.zuul.company.api</groupId>
+  <artifactId>zuul-auth-api-company</artifactId>
   <version>v1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>zuul-auth-client-b</name>
+  <name>zuul-auth-api-company</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>

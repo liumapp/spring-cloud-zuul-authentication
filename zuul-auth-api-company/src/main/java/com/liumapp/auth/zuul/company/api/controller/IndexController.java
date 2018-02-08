@@ -1,4 +1,4 @@
-package com.liumapp.auth.zuul.client.b.controller;
+package com.liumapp.auth.zuul.company.api.controller;
 
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ public class IndexController {
 
     @RequestMapping("/")
     public String index (ModelMap model) {
-        return "hello , this is client b demo";
+        return "hello , this is company api demo";
     }
 
 }
