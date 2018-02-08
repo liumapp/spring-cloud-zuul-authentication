@@ -1,4 +1,4 @@
-package com.liumapp.auth.zuul.company.api;
+package com.liumapp.auth.zuul.personal.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,11 +10,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * home-page:http://www.liumapp.com
  */
 @EnableDiscoveryClient
-@SpringBootApplication(scanBasePackages = {"com.liumapp.auth.zuul.company.api"})
-public class Main {
+@SpringBootApplication(scanBasePackages = {"com.liumapp.auth.zuul.personal.api"})
+public class Personal {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class , args);
+        SpringApplication.run(Personal.class , args);
     }
 
 }

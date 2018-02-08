@@ -35,7 +35,7 @@ zuul:
       path: /**
     token-generator:
       serviceId: token-generator
-
+      path: /**
 jwt:
   header: Authorization
   secret: mySecret

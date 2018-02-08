@@ -11,10 +11,10 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  */
 @EnableEurekaServer
 @SpringBootApplication(scanBasePackages = {"com.liumapp.auth.zuul.eureka"})
-public class Main {
+public class Eureka {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class , args);
+        SpringApplication.run(Eureka.class , args);
     }
 
 }

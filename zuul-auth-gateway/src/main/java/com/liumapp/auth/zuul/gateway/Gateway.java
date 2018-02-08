@@ -13,10 +13,10 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableZuulProxy
 @SpringCloudApplication()
 @MapperScan("com.liumapp.auth.zuul.gateway.mapper")
-public class Main {
+public class Gateway {
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class , args);
+        SpringApplication.run(Gateway.class , args);
     }
 
 }
