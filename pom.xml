@@ -32,10 +32,10 @@
 	</properties>
 
 	<modules>
-		<!--<module>zuul-auth-api-personal</module>-->
+		<module>zuul-auth-api-personal</module>
 		<module>zuul-auth-api-company</module>
-		<!--<module>zuul-auth-eureka</module>-->
-		<!--<module>zuul-auth-gateway</module>-->
+		<module>zuul-auth-eureka</module>
+		<module>zuul-auth-gateway</module>
 	</modules>
 
 	<dependencyManagement>
