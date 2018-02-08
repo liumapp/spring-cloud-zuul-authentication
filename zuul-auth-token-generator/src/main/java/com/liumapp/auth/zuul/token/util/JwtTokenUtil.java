@@ -1,6 +1,6 @@
 package com.liumapp.auth.zuul.token.util;
 
-import com.liumapp.auth.zuul.gateway.auth.user.JwtUser;
+import com.liumapp.auth.zuul.token.user.JwtUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Clock;
 import io.jsonwebtoken.Jwts;
