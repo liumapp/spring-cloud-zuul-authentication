@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>spring-cloud-zuul-authentication</artifactId>
+    <groupId>com.liumapp.auth.zuul</groupId>
+    <version>v1.0.0</version>
+  </parent>
+
+  <groupId>com.liumapp.auth.zuul.core</groupId>
+  <artifactId>zuul-auth-core</artifactId>
+  <version>v1.0.0</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <springboot.version>1.5.6.RELEASE</springboot.version>
+    <java.version>1.8</java.version>
+  </properties>
+
+  <name>zuul-auth-core</name>
+  <url>http://maven.apache.org</url>
+  <description>A lib module for SpringBoot , can not run alone</description>
+
+  <developers>
+    <developer>
+      <name>liumapp</name>
+      <url>http://www.liumapp.com</url>
+      <email>liumapp.com@gmail.com</email>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+      <version>${springboot.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <version>${springboot.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+</project>
