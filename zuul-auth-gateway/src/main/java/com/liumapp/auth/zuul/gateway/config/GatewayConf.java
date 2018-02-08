@@ -1,6 +1,7 @@
 package com.liumapp.auth.zuul.gateway.config;
 
 import com.liumapp.auth.zuul.gateway.filter.AccessFilter;
+import com.liumapp.auth.zuul.gateway.filter.auth.JwtAuthenticationTokenFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

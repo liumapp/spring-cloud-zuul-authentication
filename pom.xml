@@ -32,6 +32,7 @@
 	</properties>
 
 	<modules>
+		<!--<module>spring-cloud-zuul-demo</module>-->
 		<module>zuul-auth-api-personal</module>
 		<module>zuul-auth-api-company</module>
 		<module>zuul-auth-eureka</module>

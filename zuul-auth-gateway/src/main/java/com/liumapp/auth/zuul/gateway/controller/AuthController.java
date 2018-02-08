@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * generate token
+ * generate & refresh token
  * for personal User and company User
  * Created by liumapp on 2/8/18.
  * E-mail:liumapp.com@gmail.com
