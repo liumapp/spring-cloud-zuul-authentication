@@ -32,7 +32,7 @@
 	</properties>
 
 	<modules>
-		<!--<module>zuul-auth-client-a</module>-->
+		<module>zuul-auth-api-personal</module>
 		<!--<module>zuul-auth-client-b</module>-->
 		<!--<module>zuul-auth-eureka</module>-->
 		<!--<module>zuul-auth-gateway</module>-->
