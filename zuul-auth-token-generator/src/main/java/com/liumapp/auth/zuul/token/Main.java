@@ -2,13 +2,15 @@ package com.liumapp.auth.zuul.token;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * Created by liumapp on 9/28/17.
  * E-mail:liumapp.com@gmail.com
  * home-page:http://www.liumapp.com
  */
-@SpringBootApplication(scanBasePackages = {"com.liumapp"})
+@EnableDiscoveryClient
+@SpringBootApplication(scanBasePackages = {"com.liumapp.auth.zuul.token"})
 public class Main {
 
     public static void main(String[] args) {
