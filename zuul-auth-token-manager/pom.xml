@@ -9,11 +9,11 @@
   </parent>
 
   <groupId>com.liumapp.auth.zuul.token</groupId>
-  <artifactId>zuul-auth-token-generator</artifactId>
+  <artifactId>zuul-auth-token-manager</artifactId>
   <version>v1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>zuul-auth-token-generator</name>
+  <name>zuul-auth-token-manager</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>

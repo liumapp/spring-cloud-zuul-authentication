@@ -5,7 +5,7 @@ mybatis:
 
 spring:
   application:
-    name: token-generator
+    name: token-manager
   jackson:
       serialization:
         INDENT_OUTPUT: true
