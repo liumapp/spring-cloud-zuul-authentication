@@ -37,7 +37,8 @@
 		<module>zuul-auth-api-company</module>
 		<module>zuul-auth-eureka</module>
 		<module>zuul-auth-gateway</module>
-	</modules>
+    <module>zuul-auth-token-generator</module>
+  </modules>
 
 	<dependencyManagement>
 		<dependencies>
