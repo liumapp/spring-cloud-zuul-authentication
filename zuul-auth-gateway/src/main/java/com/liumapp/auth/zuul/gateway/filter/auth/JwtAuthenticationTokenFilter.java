@@ -3,6 +3,7 @@ package com.liumapp.auth.zuul.gateway.filter.auth;
 import com.liumapp.auth.zuul.gateway.auth.service.MultyUserDetailsService;
 import com.liumapp.auth.zuul.gateway.auth.util.JwtTokenUtil;
 import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -13,7 +14,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -56,10 +56,17 @@ public class JwtAuthenticationTokenFilter extends ZuulFilter {
 
     @Override
     public Object run() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+
+        logger.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
+
+        this.doFilterInternal(request);
+
         return null;
     }
 
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request) {
         final String requestHeader = request.getHeader(this.tokenHeader);
 
         String username = null;
@@ -101,7 +108,6 @@ public class JwtAuthenticationTokenFilter extends ZuulFilter {
 
         }
 
-        chain.doFilter(request, response);
     }
 
 }
