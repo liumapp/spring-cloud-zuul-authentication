@@ -13,10 +13,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @SpringBootApplication(scanBasePackages = {"com.liumapp.auth.zuul.token"})
 @MapperScan("com.liumapp.auth.zuul.token.mapper")
-public class TokenGenerator {
+public class TokenManager {
 
     public static void main(String[] args) {
-        SpringApplication.run(TokenGenerator.class , args);
+        SpringApplication.run(TokenManager.class , args);
     }
 
 }
