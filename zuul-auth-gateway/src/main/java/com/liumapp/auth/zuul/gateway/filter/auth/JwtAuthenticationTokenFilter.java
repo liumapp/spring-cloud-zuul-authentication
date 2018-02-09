@@ -2,6 +2,7 @@ package com.liumapp.auth.zuul.gateway.filter.auth;
 
 import com.liumapp.auth.zuul.gateway.auth.service.MultyUserDetailsService;
 import com.liumapp.auth.zuul.gateway.auth.util.JwtTokenUtil;
+import com.liumapp.auth.zuul.gateway.auth.util.SecurityExpression;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -35,6 +36,9 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
+
+    @Autowired
+    private SecurityExpression securityExpression;
 
     @Value("${jwt.header}")
     private String tokenHeader;
@@ -121,12 +125,12 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
             // For simple validation it is completely sufficient to just check the token integrity. You don't have to call
             // the database compellingly. Again it's up to you ;)
-            if (jwtTokenUtil.validateToken(token, userDetails)) {
-//                userDetails.
+            if (jwtTokenUtil.validateToken(token, userDetails) & securityExpression.hasRole(userDetails.getAuthorities() , url)) {
+                return true;
             }
 
         }
 
-        return true;
+        return false;
     }
 }
