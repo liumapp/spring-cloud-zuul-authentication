@@ -103,7 +103,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.liumapp.auth.zuul.token.domain.User">
+  <insert id="insert" parameterType="com.liumapp.auth.zuul.token.domain.User" useGeneratedKeys="true" keyProperty="id">
     insert into user (id, name, email, 
       phone, password, isEnabled, 
       type, creatAt)
