@@ -44,26 +44,10 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         String username = getUsername(authToken);
         String requestUrl = getRequestUrl(request);
 
-        logger.info("checking authentication for user " + username);
-
-        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-
-            // It is not compelling necessary to load the use details from the database. You could also store the information
-            // in the token and read it from it. It's up to you ;)
-            // chk twice
-            UserDetails userDetails = null;
-            try {
-                userDetails = userDetailsService.loadUserByPhone(username);
-            } catch (UsernameNotFoundException e) {
-                userDetails = userDetailsService.loadUserByEmail(username);
+        if (isNeedAuth(requestUrl)) {
+            if ( !chkAuth(authToken , username , requestUrl)) {
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
             }
-
-            // For simple validation it is completely sufficient to just check the token integrity. You don't have to call
-            // the database compellingly. Again it's up to you ;)
-            if (jwtTokenUtil.validateToken(authToken, userDetails)) {
-
-            }
-
         }
 
         chain.doFilter(request, response);
@@ -109,7 +93,36 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
      * is necessary to chk auth .
      * @return boolean
      */
-    private boolean isNeedAuth () {
+    private boolean isNeedAuth (String requestUrl) {
+        return true;
+    }
+
+    private boolean chkAuth (String token , String username , String url) {
+        if (token == null || token.isEmpty())
+            return false;
+
+        logger.info("checking authentication for user " + username);
+
+        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+
+            // It is not compelling necessary to load the use details from the database. You could also store the information
+            // in the token and read it from it. It's up to you ;)
+            // chk twice
+            UserDetails userDetails = null;
+            try {
+                userDetails = userDetailsService.loadUserByPhone(username);
+            } catch (UsernameNotFoundException e) {
+                userDetails = userDetailsService.loadUserByEmail(username);
+            }
+
+            // For simple validation it is completely sufficient to just check the token integrity. You don't have to call
+            // the database compellingly. Again it's up to you ;)
+            if (jwtTokenUtil.validateToken(token, userDetails)) {
+
+            }
+
+        }
+
         return true;
     }
 }
