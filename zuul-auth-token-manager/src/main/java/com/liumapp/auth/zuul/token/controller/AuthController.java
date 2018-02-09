@@ -77,7 +77,7 @@ public class AuthController {
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
 
-    @RequestMapping(value = "${jwt.route.authentication.path}/personal", method = RequestMethod.POST)
+    @RequestMapping(value = "/${jwt.route.authentication.path}/personal", method = RequestMethod.POST)
     public ResponseEntity<?> createPersonalAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
         authenticationRequest.setUsername(authenticationRequest.getPhone());
         // Perform the security
@@ -104,7 +104,7 @@ public class AuthController {
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
 
-    @RequestMapping(value = "${jwt.route.authentication.refresh}/company", method = RequestMethod.GET)
+    @RequestMapping(value = "/${jwt.route.authentication.refresh}/company", method = RequestMethod.GET)
     public ResponseEntity<?> refreshAndGetCompanyAuthenticationToken(HttpServletRequest request) {
         String authToken = request.getHeader(tokenHeader);
         final String token = authToken.substring(7);
@@ -119,7 +119,7 @@ public class AuthController {
         }
     }
 
-    @RequestMapping(value = "${jwt.route.authentication.refresh}/personal", method = RequestMethod.GET)
+    @RequestMapping(value = "/${jwt.route.authentication.refresh}/personal", method = RequestMethod.GET)
     public ResponseEntity<?> refreshAndGetPersonalAuthenticationToken(HttpServletRequest request) {
         String authToken = request.getHeader(tokenHeader);
         final String token = authToken.substring(7);
