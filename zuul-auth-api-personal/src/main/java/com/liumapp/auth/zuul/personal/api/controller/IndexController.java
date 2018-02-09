@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * home-page:http://www.liumapp.com
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/personal")
 public class IndexController {
 
     @RequestMapping("/")
