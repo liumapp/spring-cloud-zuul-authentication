@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletRequest;
  * home-page:http://www.liumapp.com
  */
 @RestController
-@RequestMapping(value = "")
+@RequestMapping(value = "/unchk")
 public class AuthController {
 
     @Value("${jwt.header}")

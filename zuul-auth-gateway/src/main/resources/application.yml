@@ -46,8 +46,3 @@ jwt:
       path: auth
       refresh: refresh
 
-liumapp:
-  gateway:
-    roles:
-      map:
-        company-api: s
