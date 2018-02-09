@@ -36,6 +36,7 @@ zuul:
     token-generator:
       serviceId: token-generator
       path: /**
+
 jwt:
   header: Authorization
   secret: mySecret
@@ -44,3 +45,9 @@ jwt:
     authentication:
       path: auth
       refresh: refresh
+
+liumapp:
+  gateway:
+    roles:
+      map:
+        company-api: s
