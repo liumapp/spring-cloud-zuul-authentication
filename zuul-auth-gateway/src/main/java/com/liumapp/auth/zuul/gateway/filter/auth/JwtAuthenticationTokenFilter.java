@@ -7,6 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,6 +18,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * Created by liumapp on 2/2/18.
@@ -94,7 +97,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
      * @return boolean
      */
     private boolean isNeedAuth (String requestUrl) {
-        return true;
+        boolean unchk = requestUrl.contains("unchk");
+        return !unchk;
     }
 
     private boolean chkAuth (String token , String username , String url) {
@@ -118,7 +122,11 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             // For simple validation it is completely sufficient to just check the token integrity. You don't have to call
             // the database compellingly. Again it's up to you ;)
             if (jwtTokenUtil.validateToken(token, userDetails)) {
-
+                Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
+                Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
+                while (iterator.hasNext()) {
+                    GrantedAuthority authority = iterator.next();
+                }
             }
 
         }
