@@ -34,7 +34,7 @@ zuul:
       serviceId: personal-api
       path: /**
     token-generator:
-      serviceId: token-generator
+      serviceId: token-manager
       path: /**
 
 jwt:
