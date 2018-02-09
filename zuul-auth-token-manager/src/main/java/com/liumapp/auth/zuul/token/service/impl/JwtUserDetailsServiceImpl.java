@@ -37,10 +37,10 @@ public class JwtUserDetailsServiceImpl implements MultyUserDetailsService {
         UserDetails userDetails = null;
         try {
             userDetails = this.loadUserByEmail(username);
-        } catch (UsernameNotFoundException e1) {
+        } catch (Exception e1 ) {
             try {
                 userDetails = this.loadUserByPhone(username);
-            } catch (UsernameNotFoundException e2) {
+            } catch (Exception e2) {
                 throw e2;
             }
         }
