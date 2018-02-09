@@ -107,11 +107,11 @@ public class JwtUser implements UserDetails {
 
     /**
      * support both uppercases and lowercases
-     * @param role
-     * @return
+     * @param role Authority
+     * @return boolean
      */
     public boolean hasRole (String role) {
-        
+//        todo
         return true;
     }
 

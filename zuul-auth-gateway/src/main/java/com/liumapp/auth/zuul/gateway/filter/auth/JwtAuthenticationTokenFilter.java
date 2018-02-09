@@ -46,6 +46,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
         String username = null;
         String authToken = null;
+
         if (requestHeader != null && requestHeader.startsWith("Bearer ")) {
             authToken = requestHeader.substring(7);
             try {
@@ -75,12 +76,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             // For simple validation it is completely sufficient to just check the token integrity. You don't have to call
             // the database compellingly. Again it's up to you ;)
             if (jwtTokenUtil.validateToken(authToken, userDetails)) {
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                Collection<GrantedAuthority> auth = authentication.getAuthorities();
-                boolean hasRole = auth.contains("ROLE_MANAGER");
-                logger.info("authenticated user " + username + ", setting security context");
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+
             }
 
         }
