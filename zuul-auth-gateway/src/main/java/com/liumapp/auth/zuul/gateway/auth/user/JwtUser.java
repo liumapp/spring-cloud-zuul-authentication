@@ -22,6 +22,7 @@ public class JwtUser implements UserDetails {
     private final Collection<? extends GrantedAuthority> authorities;
     private final boolean enabled;
     private final int type;
+    private String rolePrefix = "ROLE_";
 
     public JwtUser(
             Long id,
@@ -102,6 +103,16 @@ public class JwtUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return enabled;
+    }
+
+    /**
+     * support both uppercases and lowercases
+     * @param role
+     * @return
+     */
+    public boolean hasRole (String role) {
+        
+        return true;
     }
 
 }
