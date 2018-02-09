@@ -38,7 +38,6 @@
 		<module>zuul-auth-gateway</module>
     	<module>zuul-auth-token-manager</module>
     	<module>zuul-auth-core</module>
-		<module>jsp-basic</module>
   	</modules>
 
 	<dependencyManagement>

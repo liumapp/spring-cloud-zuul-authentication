@@ -7,12 +7,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -20,7 +17,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Collection;
 
 /**
  * Created by liumapp on 2/2/18.
@@ -44,23 +40,12 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         final String requestHeader = request.getHeader(this.tokenHeader);
 
-        String username = null;
-        String authToken = null;
-
-        if (requestHeader != null && requestHeader.startsWith("Bearer ")) {
-            authToken = requestHeader.substring(7);
-            try {
-                username = jwtTokenUtil.getUsernameFromToken(authToken);
-            } catch (IllegalArgumentException e) {
-                logger.error("an error occured during getting username from token", e);
-            } catch (ExpiredJwtException e) {
-                logger.warn("the token is expired and not valid anymore", e);
-            }
-        } else {
-            logger.warn("couldn't find bearer string, will ignore the header");
-        }
+        String authToken = getAuthToken(requestHeader);
+        String username = getUsername(authToken);
+        String requestUrl = getRequestUrl(request);
 
         logger.info("checking authentication for user " + username);
+
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
             // It is not compelling necessary to load the use details from the database. You could also store the information
@@ -82,5 +67,49 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         }
 
         chain.doFilter(request, response);
+    }
+
+    private String getAuthToken (String requestHeader) {
+        String authToken = null;
+
+        if (requestHeader != null && requestHeader.startsWith("Bearer ")) {
+            authToken = requestHeader.substring(7);
+
+        } else {
+            logger.warn("couldn't find bearer string, will ignore the header");
+        }
+
+        return authToken;
+    }
+
+    private String getUsername (String token) {
+        String username = null;
+
+        try {
+            username = jwtTokenUtil.getUsernameFromToken(token);
+        } catch (IllegalArgumentException e) {
+            logger.error("an error occured during getting username from token", e);
+        } catch (ExpiredJwtException e) {
+            logger.warn("the token is expired and not valid anymore", e);
+        }
+
+        return username;
+    }
+
+    private String getRequestUrl (HttpServletRequest request) {
+        String url = request.getRequestURI();
+
+        if (url.isEmpty() || url == null)
+            url = request.getServletPath();
+
+        return url;
+    }
+
+    /**
+     * is necessary to chk auth .
+     * @return boolean
+     */
+    private boolean isNeedAuth () {
+        return true;
     }
 }
