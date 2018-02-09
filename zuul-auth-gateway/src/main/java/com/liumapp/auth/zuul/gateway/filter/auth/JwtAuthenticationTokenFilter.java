@@ -122,11 +122,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             // For simple validation it is completely sufficient to just check the token integrity. You don't have to call
             // the database compellingly. Again it's up to you ;)
             if (jwtTokenUtil.validateToken(token, userDetails)) {
-                Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
-                Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
-                while (iterator.hasNext()) {
-                    GrantedAuthority authority = iterator.next();
-                }
+//                userDetails.
             }
 
         }
