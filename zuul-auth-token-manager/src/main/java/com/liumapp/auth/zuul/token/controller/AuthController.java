@@ -50,7 +50,7 @@ public class AuthController {
         return "hello , this is auth zuul gateway .";
     }
 
-    @RequestMapping(value = "${jwt.route.authentication.path}/company", method = RequestMethod.POST)
+    @RequestMapping(value = "/${jwt.route.authentication.path}/company", method = RequestMethod.POST)
     public ResponseEntity<?> createCompanyAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
         authenticationRequest.setUsername(authenticationRequest.getEmail());
         // Perform the security
