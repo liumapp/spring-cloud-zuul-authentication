@@ -3,5 +3,6 @@ Using Spring Cloud Zuul and Spring Security as the Dependency, the  authenticati
 
 ## how to use
 
-i come back from hangzhou to Xiangxiang
+* start eureka , api-company , api-personal , gateway , token-manager
 
+* 
