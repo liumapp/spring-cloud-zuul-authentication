@@ -3,7 +3,7 @@ Using Spring Cloud Zuul and Spring Security as the Dependency, the  authenticati
 
 the er pic is simple : 
 
-
+![er.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/er.jpg)
 
 ## how to use
 
@@ -11,4 +11,8 @@ the er pic is simple :
 
 * open eureka , you can find our server is registed , like this : 
 
+![eureka.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/eureka.jpg)
 
+* now , let's see how to use the token for different roles . 
+
+    * 
