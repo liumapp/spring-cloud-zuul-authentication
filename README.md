@@ -37,6 +37,28 @@ the er pic is simple :
 
 * now , let's see how to use the token for different roles . 
 
-    * 
+    First of all , we need to set "Authorization" in Headers , which value should be like Bearer + " " + ${token} , for example :  
     
+    ![authorization.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/authorization.jpg)
+    
+    next , we can use the token to do something meaningful . 
+
+    * A personal user wants to say hello :
+    
+        ![personal_greeting.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/personal_greeting.jpg)
+     
+    * A personal user wants to view boss's api :
+     
+    * A employee user wants to say hello :
+     
+    * A employee user wants to view manager's api : 
+     
+    * A manager user wants to say hello :
+     
+    * A manager user wants to view employee's api :
+     
+    * A manager user wants to view boss's api :
+     
+    * A boss user wants to say hello : 
+     
     
