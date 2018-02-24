@@ -13,14 +13,14 @@ the er pic is simple :
 
 ![eureka.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/eureka.jpg)
 
-* while the server under runing , we can start using , and first of all , we need get our token for users. 
+* while the server under runing , we can start using , and first of all , we need get our token for users.
+ 
+    We assume that personal user is logged in with a mobile phone number, and an company user is using an email to log in.
 
     * login for personal users .
     
-        
-    
         ![personal_login.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/personal_login.jpg)
-    
+        
     * login for company users . 
     
         * login as boss
@@ -32,3 +32,5 @@ the er pic is simple :
 * now , let's see how to use the token for different roles . 
 
     * 
+    
+    
