@@ -48,16 +48,24 @@ the er pic is simple :
         ![personal_greeting.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/personal_greeting.jpg)
      
     * A personal user wants to view boss's api :
+    
+        ![unauthorized.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/unauthorized.jpg)
      
     * A employee user wants to say hello :
+    
+        ![employee_greeting.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/employee_greeting.jpg)
      
-    * A employee user wants to view manager's api : 
+    * A employee user wants to view manager's api :
+     
+        ![unauthorized.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/unauthorized.jpg)
      
     * A manager user wants to say hello :
      
     * A manager user wants to view employee's api :
      
     * A manager user wants to view boss's api :
+    
+        ![unauthorized.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/unauthorized.jpg)
      
     * A boss user wants to say hello : 
      
