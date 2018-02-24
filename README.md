@@ -25,9 +25,15 @@ the er pic is simple :
     
         * login as boss
         
+        ![boss_login.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/boss_login.jpg)
+        
         * login as manager
         
+        ![manager_login.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/manager_login.jpg)
+        
         * login as employee
+        
+        ![employee_login.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/employee_login.jpg)
 
 * now , let's see how to use the token for different roles . 
 
