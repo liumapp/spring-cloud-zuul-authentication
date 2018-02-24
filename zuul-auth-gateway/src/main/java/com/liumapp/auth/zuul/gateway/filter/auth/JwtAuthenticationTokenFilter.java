@@ -54,6 +54,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         if (isNeedAuth(requestUrl)) {
             if ( !chkAuth(authToken , username , requestUrl)) {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+                return ;
             }
         }
 
