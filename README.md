@@ -17,6 +17,10 @@ the er pic is simple :
 
     * login for personal users .
     
+        
+    
+        ![personal_login.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/personal_login.jpg)
+    
     * login for company users . 
     
         * login as boss
