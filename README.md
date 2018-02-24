@@ -13,6 +13,18 @@ the er pic is simple :
 
 ![eureka.jpg](https://github.com/liumapp/spring-cloud-zuul-authentication/blob/master/pic/eureka.jpg)
 
+* while the server under runing , we can start using , and first of all , we need get our token for users. 
+
+    * login for personal users .
+    
+    * login for company users . 
+    
+        * login as boss
+        
+        * login as manager
+        
+        * login as employee
+
 * now , let's see how to use the token for different roles . 
 
     * 
