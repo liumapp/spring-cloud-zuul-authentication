@@ -37,7 +37,8 @@
 		<module>zuul-auth-eureka</module>
 		<module>zuul-auth-gateway</module>
     	<module>zuul-auth-token-manager</module>
-  	</modules>
+    <module>zuul-auth-config-server</module>
+  </modules>
 
 	<dependencyManagement>
 		<dependencies>
