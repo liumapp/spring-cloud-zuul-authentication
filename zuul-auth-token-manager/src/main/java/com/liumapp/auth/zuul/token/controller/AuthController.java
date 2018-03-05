@@ -59,6 +59,7 @@ public class AuthController {
 
     @RequestMapping(value = "/${jwt.route.authentication.path}/company", method = RequestMethod.POST)
     public ResponseEntity<?> createCompanyAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
+        logger.info("this is company login , and active info is : " + activeInfo);
         authenticationRequest.setUsername(authenticationRequest.getEmail());
         // Perform the security
         Authentication authentication = null;
@@ -85,6 +86,7 @@ public class AuthController {
 
     @RequestMapping(value = "/${jwt.route.authentication.path}/personal", method = RequestMethod.POST)
     public ResponseEntity<?> createPersonalAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
+        logger.info("this is personal login , and active info is : " + activeInfo);
         authenticationRequest.setUsername(authenticationRequest.getPhone());
         // Perform the security
         Authentication authentication = null;
