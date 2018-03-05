@@ -5,6 +5,8 @@ import com.liumapp.auth.zuul.token.response.JwtAuthenticationResponse;
 import com.liumapp.auth.zuul.token.service.MultyUserDetailsService;
 import com.liumapp.auth.zuul.token.user.JwtUser;
 import com.liumapp.auth.zuul.token.util.JwtTokenUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +37,11 @@ public class AuthController {
 
     @Value("${jwt.header}")
     private String tokenHeader;
+
+    @Value("${custom.activeInfo}")
+    private String activeInfo;
+
+    private static Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     @Autowired
     private AuthenticationManager authenticationManager;
