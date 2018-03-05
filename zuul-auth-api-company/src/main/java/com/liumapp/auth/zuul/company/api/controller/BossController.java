@@ -1,5 +1,6 @@
 package com.liumapp.auth.zuul.company.api.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,9 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("boss")
 public class BossController {
 
+    @Value("${custom.activeInfo}")
+    private String activeInfo;
+
     @RequestMapping("/hello")
     public ResponseEntity<?> hello () {
-        return ResponseEntity.ok("hello");
+        return ResponseEntity.ok("hello , and active info is : " + activeInfo);
     }
 
     @RequestMapping("/")
