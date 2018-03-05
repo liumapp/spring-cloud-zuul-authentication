@@ -4,8 +4,6 @@ mybatis:
   mapper-locations: classpath*:mappers/*Mapper.xml
 
 spring:
-  application:
-    name: token-manager
   jackson:
       serialization:
         INDENT_OUTPUT: true
@@ -17,14 +15,6 @@ spring:
       # 使用druid数据源
       type: com.alibaba.druid.pool.DruidDataSource
       driver-class-name: com.mysql.jdbc.Driver
-
-server:
-  port: 8083
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:1234/eureka/
 
 jwt:
   header: Authorization
