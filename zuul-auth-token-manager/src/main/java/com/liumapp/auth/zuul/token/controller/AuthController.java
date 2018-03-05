@@ -35,6 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/unchk")
 public class AuthController {
 
+
     @Value("${jwt.header}")
     private String tokenHeader;
 

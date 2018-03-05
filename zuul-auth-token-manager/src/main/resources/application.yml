@@ -8,6 +8,7 @@ spring:
       serialization:
         INDENT_OUTPUT: true
   datasource:
+      # 以下的配置是错的，目的在于告诉各位外部配置优先级高于application.yml
       name: spring_security
       url: jdbc:mysql://localhost:3306/spring_security?useUnicode=true&characterEncoding=utf8
       username: root
