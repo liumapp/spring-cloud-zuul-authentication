@@ -1,18 +1,19 @@
 spring:
-  devtools:
-    restart:
-      exclude:  public/**
-      enabled:  true
-  thymeleaf:
-    suffix: .html
-    mode: HTML5
-    encoding: UTF-8
-    content-type: text/html; charset=utf-8
-    cache: false
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/liumapp/spring-cloud-zuul-authentication
+          search-paths: config
 
-mybatis:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath*:mappers/*Mapper.xml
 server:
-  port: 8081
+  port: 7001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1234/eureka/
+
+
